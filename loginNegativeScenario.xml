@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name=" Test Suite">
+ <!--   <test name="testP1">
+        <classes>
+            <class name="testcase.TC01_Registration">
+                <methods>
+                    <include name="registerNewUserWithValidData_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>  -->
+
+    <test name="testN1">
+    <classes>
+        <class name="testcase.TC02_Login">
+            <methods>
+                <include name="loginWithValidEmailAndWrongPassword_N"/>
+            </methods>
+        </class>
+    </classes>
+    </test>
+
+    <test name="testN2">
+        <classes>
+            <class name="testcase.TC02_Login">
+                <methods>
+                    <include name="loginWithValidPasswordAndInvalidMail_N"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="testN3">
+        <classes>
+            <class name="testcase.TC02_Login">
+                <methods>
+                    <include name="loginWithInvalidCredentials_N"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

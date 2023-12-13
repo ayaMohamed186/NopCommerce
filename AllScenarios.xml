@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name=" Test Suite">
+    <test name="test1">
+        <classes>
+            <class name="testcase.TC01_Registration">
+                <methods>
+                    <include name="registerNewUserWithValidData_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="test2">
+        <classes>
+            <class name="testcase.TC02_Login">
+                <methods>
+                    <include name="loginWithRegisteredUser_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="test3">
+        <classes>
+            <class name="testcase.TC03_ResetPassword">
+                <methods>
+                    <include name="resetPasswordFunction"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="test4">
+        <classes>
+            <class name="testcase.TC04_SearchForProduct">
+                <methods>
+                    <include name="searchForProduct"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="test5">
+        <classes>
+            <class name="testcase.TC05_SwitchBetweenCurrencies">
+                <methods>
+                    <include name="switchBetweenCurrencies"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="test6">
+        <classes>
+            <class name="testcase.TC06_SelectRandomCategory">
+                <methods>
+                    <include name="selectRandomCategory"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="test7">
+        <classes>
+            <class name="testcase.TC07_FilterByColor">
+                <methods>
+                    <include name="filterProductByColor"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="test8">
+        <classes>
+            <class name="testcase.TC08_SelectDifferentTags">
+                <methods>
+                    <include name="selectDifferentTags"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="test9">
+        <classes>
+            <class name="testcase.TC09_AddProductToShoppingCart">
+                <methods>
+                    <include name="addProductToShoppingCart"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="test10">
+        <classes>
+            <class name="testcase.TC10_AddProductToWishList">
+                <methods>
+                    <include name="addProductToWishList"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="test11">
+        <classes>
+            <class name="testcase.TC11_AddProductToCompareList">
+                <methods>
+                    <include name="addProductToCompareList"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="test12">
+        <classes>
+            <class name="testcase.TC12_CreateOrder">
+                <methods>
+                    <include name="createOrder"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

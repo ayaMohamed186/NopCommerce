@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name=" Test Suite">
+  <!--   <test name="test register positive">
+        <classes>
+            <class name="testcase.TC01_Registration">
+                <methods>
+                    <include name="registerNewUserWithValidData_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>   -->
+
+    <test name="test registration with duplicate mail">
+    <classes>
+        <class name="testcase.TC01_Registration">
+            <methods>
+                <include name="registerWithDuplicateMail_N"/>
+            </methods>
+        </class>
+    </classes>
+    </test>
+
+    <test name="testN5">
+        <classes>
+            <class name="testcase.TC01_Registration">
+                <methods>
+                    <include name="registerWithPasswordNotMatchConfirmPassword_N"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
