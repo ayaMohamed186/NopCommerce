@@ -12,12 +12,12 @@ public class P09_CheckoutBillingAddressPage {
         this.driver = driver;
     }
 
-    private final By checkoutCountryDropDown = By.id("BillingNewAddress_CountryId");
+    private final By checkoutCountryDropDown = By.xpath("//select[@id='BillingNewAddress_CountryId']");
     private final By cityInputField = By.id("BillingNewAddress_City");
     private final By address1InputField = By.id("BillingNewAddress_Address1");
-    private final By zipCodeInputField = By.id("BillingNewAddress_ZipPostalCode");
+    private final By zipCodeInputField =  By.id("BillingNewAddress_ZipPostalCode");
     private final By phoneInputField = By.id("BillingNewAddress_PhoneNumber");
-    private final By continueBillingAddressDetailsBtn = By.xpath("//button[@onclick='Billing.save()']");
+    private final By continueBillingAddressDetailsBtn = By.xpath("(//button[@name='save'])[1]");
 
 
     public P09_CheckoutBillingAddressPage selectCheckoutCountryDropDown(int index){

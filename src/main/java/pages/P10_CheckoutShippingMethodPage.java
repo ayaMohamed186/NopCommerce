@@ -9,7 +9,7 @@ public class P10_CheckoutShippingMethodPage {
         this.driver=driver;
     }
 
-    private final By groundShippingMethod = By.id("shippingoption_0");
+    private final By groundShippingMethod = By.xpath("//input[@id='shippingoption_0']");
     private final By continueAtShippingMethodPage = By.xpath("(//button[@type='button'])[10]");
 
     public P10_CheckoutShippingMethodPage selectGroundShippingMethod(){

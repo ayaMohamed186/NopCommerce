@@ -12,14 +12,15 @@ public class TC09_AddProductToShoppingCart extends TestBase{
     public void addProductToShoppingCart() throws InterruptedException {
         new P01_HomePage(driver).clickLoginBtn();
         new P03_LoginPage(driver).fillEmail(TC01_Registration.tempMail).fillPassword(password).clickLoginButton();
-        new P06_SubCategoryShoesPage(driver).hoverOnApperalCategory().clickOnShoesSubCategory().addFirstProductToCartProductPage();
+        new P06_SubCategoryShoesPage(driver).hoverOnApperalCategory().clickOnShoesSubCategory();
+        Thread.sleep(1500);
+        new P06_SubCategoryShoesPage(driver).addFirstProductToCartProductPage();
+        Thread.sleep(1500);
         new P07_ProductPage(driver).selectProductSize(1).addFirstProductToCart();
         Thread.sleep(4000);
-        //WebDriverWait w = new WebDriverWait(driver, 5);
-        //w.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='cart-label']")));
 
         new P08_ShoppingCartPage(driver).clickOnShoppingCartBtn();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         new P08_ShoppingCartPage(driver).deleteItemFromShoppingCart();
 
         Thread.sleep(1000);

@@ -10,10 +10,10 @@ public class P12_PaymentInformationPage {
     public P12_PaymentInformationPage(WebDriver driver){
         this.driver=driver;
     }
-    private final By cardHolderName = By.id("CardholderName");
-    private final By cardNumberEle = By.id("CardNumber");
-    private final By cardExpireYear = By.id("ExpireYear");
-    private final By cardCodeEle = By.id("CardCode");
+    private final By cardHolderName = By.xpath("//input[@id='CardholderName']");
+    private final By cardNumberEle = By.xpath("//input[@id='CardNumber']");
+    private final By cardExpireYear = By.xpath("//select[@id='ExpireYear']");
+    private final By cardCodeEle = By.xpath("//input[@id='CardCode']");
     private final By continuePaymentInfoSection = By.xpath("(//button[@type='button'])[12]");
 
 

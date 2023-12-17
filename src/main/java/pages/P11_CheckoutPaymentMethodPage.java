@@ -9,7 +9,7 @@ public class P11_CheckoutPaymentMethodPage {
         this.driver=driver;
     }
 
-    private final By creditOption = By.id("paymentmethod_1");
+    private final By creditOption = By.xpath("//input[@id='paymentmethod_1']");
     private final By continueAtPaymentMethod = By.xpath("(//button[@type='button'])[11]");
 
     public P11_CheckoutPaymentMethodPage selectCreditPaymentMethod(){

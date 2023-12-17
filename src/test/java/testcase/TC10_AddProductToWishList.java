@@ -16,8 +16,9 @@ public class TC10_AddProductToWishList extends TestBase{
     public void addProductToWishList() throws InterruptedException {
         new P01_HomePage(driver).clickLoginBtn();
         new P03_LoginPage(driver).fillEmail(TC01_Registration.tempMail).fillPassword(password).clickLoginButton();
-        new P06_SubCategoryShoesPage(driver).hoverOnApperalCategory().clickOnShoesSubCategory().addThirdProductToWishList();
-
+        new P06_SubCategoryShoesPage(driver).hoverOnApperalCategory().clickOnShoesSubCategory();
+        Thread.sleep(1000);
+        new P06_SubCategoryShoesPage(driver).addThirdProductToWishList();
         Thread.sleep(2000);
 
     }

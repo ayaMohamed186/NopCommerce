@@ -3,7 +3,9 @@ package testcase;
 import org.testng.annotations.Test;
 import pages.P01_HomePage;
 import pages.P02_RegistrationPage;
+import util.Utility;
 
+import static util.Utility.captureScreenshot;
 import static util.Utility.generateRandomInt;
 
 public class TC01_Registration extends TestBase {
@@ -29,6 +31,11 @@ public class TC01_Registration extends TestBase {
         new P02_RegistrationPage(driver).chooseGender().fillFirstName(firstName).fillLastName(lastName).selectDay(day).selectMonth(month).selectYear(year).
                 fillEmailInputField(tempMail).fillPasswordField(password).fillConfirmPassword(confirmPassword).clickRegisterBtn();
         Thread.sleep(3000);
+
+        // TODO: capture screenshot
+       captureScreenshot(driver,"P_registration");
+       // TODO: assert registration successfully
+
     }
 
     @Test(priority = 2 , description = "Register with duplicate exist mail")
