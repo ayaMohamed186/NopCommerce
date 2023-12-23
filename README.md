@@ -1,6 +1,6 @@
 # Nop Commerce
 
-![Nop Commerce Logo](https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.nopcommerce.com%2Fimages%2FnopLogos%2FnopCommerce%2Fnopcommerce_full_logo.png&tbnid=6CU4WQLIjv1dSM&vet=12ahUKEwissNuTxKWDAxVnnCcCHQnHA_4QMygAegQIARBO..i&imgrefurl=https%3A%2F%2Fwww.nopcommerce.com%2Fen%2Fbranding&docid=C8etrXKXUT-EwM&w=1000&h=167&q=Nopcommerce%20logo&ved=2ahUKEwissNuTxKWDAxVnnCcCHQnHA_4QMygAegQIARBO.jpg)
+![Nop Commerce Logo](https://ceblog.s3.amazonaws.com/wp-content/uploads/2023/11/02215306/nopcommerce-logo.png)
 
 ## Table of Contents
 
