@@ -7,6 +7,8 @@ import pages.P01_HomePage;
 import pages.P03_LoginPage;
 import pages.P05_CategoriesPages;
 
+import static util.Utility.captureScreenshot;
+
 public class TC06_SelectRandomCategory extends TestBase{
     String password = "123456";
     @Test(priority = 1 , description = "Select Random Category")
@@ -14,7 +16,9 @@ public class TC06_SelectRandomCategory extends TestBase{
         new P01_HomePage(driver).clickLoginBtn();
         new P03_LoginPage(driver).fillEmail(TC01_Registration.tempMail).fillPassword(password).clickLoginButton();
         new P05_CategoriesPages(driver).hoverOnRandomCategory();
+        Thread.sleep(1500);
 
-        Thread.sleep(3000);
+        // TODO: capture screenshot
+        captureScreenshot(driver, "SelectedRandomCategory");
     }
 }

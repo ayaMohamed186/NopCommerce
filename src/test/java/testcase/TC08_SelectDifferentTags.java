@@ -5,6 +5,8 @@ import pages.P01_HomePage;
 import pages.P03_LoginPage;
 import pages.P06_SubCategoryShoesPage;
 
+import static util.Utility.captureScreenshot;
+
 public class TC08_SelectDifferentTags extends TestBase{
     String password = "123456";
 
@@ -14,5 +16,10 @@ public class TC08_SelectDifferentTags extends TestBase{
         new P03_LoginPage(driver).fillEmail(TC01_Registration.tempMail).fillPassword(password).clickLoginButton();
         new P06_SubCategoryShoesPage(driver).hoverOnApperalCategory().selectRandomSubCategory();
         Thread.sleep(1500);
+
+        // TODO: capture screenshot
+        captureScreenshot(driver, "selectDiffTags");
+
+
     }
 }

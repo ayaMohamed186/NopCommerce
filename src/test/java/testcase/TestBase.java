@@ -27,16 +27,8 @@ public class TestBase {
 
     @BeforeTest
     public void setupDriver(String browser){
-       // WebDriverManager.chromedriver().setup();
-        //driver = new ChromeDriver();
-
-        //driver.manage().window().maximize();
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
         driver = DriverFactory.getNewInstance(browser);
         setDriver(driver);
-
-        // TOOD: start website
         driver.get("https://demo.nopcommerce.com/");
     }
 
