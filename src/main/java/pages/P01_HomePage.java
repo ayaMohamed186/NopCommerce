@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.concurrent.TimeUnit;
+
 import static pages.PageBase.longWait;
 import static pages.PageBase.shortWait;
 
@@ -26,7 +28,6 @@ public class P01_HomePage {
     private final By msgFailedLogin = By.xpath("//div[@class='message-error validation-summary-errors']");
     private final By productDisplayForSearch = By.xpath("(//a[@href='/apple-macbook-pro-13-inch'])[2]");
     private final By euroSignDisplayed = By.xpath("(//span[@class='price actual-price'])[3]");
-
     private final By wishListBtn = By.xpath("//a[@href='/wishlist']");
     private final By compareListBtn = By.xpath("(//a[@href='/compareproducts'])[1]");
 
@@ -77,27 +78,42 @@ public class P01_HomePage {
         return this;
     }
 
-    public String getLogoutBtn(){
+    public String getLogoutBtn() {
         shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.logOutBtn));
         return driver.findElement(this.logOutBtn).getText();
     }
 
-    public String getFailedLoginMsg(){
+    public P01_HomePage waitUntilPageLoad(){
+        shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.logOutBtn));
+        return this;
+    }
+
+    public String getFailedLoginMsg() {
         shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.msgFailedLogin));
         return driver.findElement(this.msgFailedLogin).getText();
     }
 
-    public boolean validateIfProductsDisplayAfterSearch(){
+    public boolean validateIfProductsDisplayAfterSearch() {
         shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.productDisplayForSearch));
         return driver.findElement(this.productDisplayForSearch).getText().contains("Apple");
     }
 
-    public boolean validateIfCurrencyChanged(){
+    public P01_HomePage waitUntilProductDisplay(){
+        shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.productDisplayForSearch));
+        return this;
+    }
+
+    public boolean validateIfCurrencyChanged() {
         shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.switchCurrencies));
         return driver.findElement(this.euroSignDisplayed).getText().contains("€");
     }
 
-    public P01_HomePage clickOnWishList(){
+    public P01_HomePage waitUntilCurrencyChange(){
+        shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.euroSignDisplayed));
+        return this;
+    }
+
+    public P01_HomePage clickOnWishList() {
         try {
             shortWait(driver).until(ExpectedConditions.elementToBeClickable(this.wishListBtn));
         } catch (TimeoutException ex) {
@@ -107,7 +123,8 @@ public class P01_HomePage {
         driver.findElement(this.wishListBtn).click();
         return this;
     }
-    public P01_HomePage clickOnComparisonList(){
+
+    public P01_HomePage clickOnComparisonList() {
         try {
             shortWait(driver).until(ExpectedConditions.elementToBeClickable(this.compareListBtn));
         } catch (TimeoutException ex) {
@@ -117,6 +134,7 @@ public class P01_HomePage {
         driver.findElement(this.compareListBtn).click();
         return this;
     }
+
 
 /*
 

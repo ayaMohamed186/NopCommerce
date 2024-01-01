@@ -20,9 +20,6 @@ public class P07_ProductPage {
 
     private final By firstProductSize = By.xpath("//select[@data-attr='9']");
     private final By firstProductAddToCartBTN = By.xpath("//button[@id='add-to-cart-button-25']");
-    private final By productAddedToCart = By.xpath("//div[@class='product-name']/h1");
-    private final By productDisplayedAtCart = By.xpath("//a[@class='product-name']");
-    private final By productAddedToCompareList = By.xpath("//tr[@class='product-name']//td[2]//a");
 
     public P07_ProductPage selectProductSize(int index) {
         longWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.firstProductSize));
@@ -43,18 +40,7 @@ public class P07_ProductPage {
         return this;
     }
 
-    public String productAddedToCart(){
-        shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.productAddedToCart));
-        return driver.findElement(this.productAddedToCart).getText();
-    }
-    public String productDisplayedAtCart(){
-        shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.productDisplayedAtCart));
-        return driver.findElement(this.productDisplayedAtCart).getText();
-    }
 
-    public String getProductAddedToCompareList(){
-        longWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.productAddedToCompareList));
-        return driver.findElement(this.productAddedToCompareList).getText();
-    }
+
 
 }

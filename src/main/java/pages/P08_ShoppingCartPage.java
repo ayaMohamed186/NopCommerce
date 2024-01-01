@@ -5,6 +5,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static pages.PageBase.longWait;
 import static pages.PageBase.shortWait;
 
 public class P08_ShoppingCartPage {
@@ -18,6 +19,8 @@ public class P08_ShoppingCartPage {
     private final By deleteItemFromShoppingCart = By.xpath("(//button[@type='button'])[2]");
     private final By termsAndConditionCheckbox = By.id("termsofservice");
     private final By checkOutBtn = By.id("checkout");
+    private final By productAddedToCart = By.xpath("//div[@class='product-name']/h1");
+    private final By productDisplayedAtCart = By.xpath("//a[@class='product-name']");
     public P08_ShoppingCartPage clickOnShoppingCartBtn() {
         try {
             shortWait(driver).until(ExpectedConditions.elementToBeClickable(this.shoppingCartBtnPage));
@@ -61,5 +64,17 @@ public class P08_ShoppingCartPage {
         driver.findElement(this.checkOutBtn).click();
         return this;
     }
+    public String productAddedToCart(){
+        shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.productAddedToCart));
+        return driver.findElement(this.productAddedToCart).getText();
+    }
+    public String productDisplayedAtCart(){
+        shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.productDisplayedAtCart));
+        return driver.findElement(this.productDisplayedAtCart).getText();
+    }
 
+    public P08_ShoppingCartPage waitUntilProductDisplayed(){
+        longWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.productDisplayedAtCart));
+        return this;
+    }
 }

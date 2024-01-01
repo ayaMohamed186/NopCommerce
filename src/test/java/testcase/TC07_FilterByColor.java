@@ -8,7 +8,6 @@ import pages.P06_SubCategoryShoesPage;
 import static util.Utility.captureScreenshot;
 
 public class TC07_FilterByColor extends TestBase{
-
     String password = "123456";
     @Test(priority = 1 , description = "filter product in shoes category By Color")
     public void filterProductByColor() throws InterruptedException {
@@ -19,6 +18,5 @@ public class TC07_FilterByColor extends TestBase{
 
         // TODO: capture screenshot
         captureScreenshot(driver, "FilterProductByColor");
-
     }
 }

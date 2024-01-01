@@ -1,9 +1,6 @@
 package testcase;
 
 import com.github.javafaker.CreditCardType;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
@@ -28,22 +25,22 @@ public class TC12_CreateOrder extends TestBase {
         new P06_SubCategoryShoesPage(driver).addFirstProductToCartProductPage();
         new P07_ProductPage(driver).selectProductSize(1).addFirstProductToCart();
         new P08_ShoppingCartPage(driver).clickOnShoppingCartBtn().clickOnTermsAndConditionCheckbox().clickOnCheckoutBtn();
-        new P09_CheckoutBillingAddressPage(driver).selectCheckoutCountryDropDown(4).fillCityInputField(city).
+        new P10_CheckoutBillingAddressPage(driver).selectCheckoutCountryDropDown(4).fillCityInputField(city).
                 fillAddressInputField(address).fillZipCodeInputField(zipcode).fillPhoneInputField(phone).
                 clickOnContinueAtBillingAddressPage();
-        new P10_CheckoutShippingMethodPage(driver).selectGroundShippingMethod().clickOnContinueBtnAtShippingMethod();
-        new P11_CheckoutPaymentMethodPage(driver).selectCreditPaymentMethod().clickOnContinueAtPaymentMethod();
-        new P12_PaymentInformationPage(driver).fillCardHolderName(cardHolderName).fillCreditCardNumberField(CreditCardNumberGenerated).
+        new P11_CheckoutShippingMethodPage(driver).selectGroundShippingMethod().clickOnContinueBtnAtShippingMethod();
+        new P12_CheckoutPaymentMethodPage(driver).selectCreditPaymentMethod().clickOnContinueAtPaymentMethod();
+        new P13_PaymentInformationPage(driver).fillCardHolderName(cardHolderName).fillCreditCardNumberField(CreditCardNumberGenerated).
                 selectExpireYear(2).fillCardCode(cardCode).clickOnContinueAtPaymentInfoSec();
-        new P13_ConfirmOrderPage(driver).clickOnConfirmOrderBtn();
+        new P14_ConfirmOrderPage(driver).clickOnConfirmOrderBtn();
 
-        Thread.sleep(1000);
 
+        new P14_ConfirmOrderPage(driver).waitUntilSuccessMagDisplayed();
         // TODO: capture screenshot
         captureScreenshot(driver, "SuccessOrder");
 
         //Assertion
-        Assert.assertTrue(new P13_ConfirmOrderPage(driver).validateIfSuccessOrder());
+        Assert.assertTrue(new P14_ConfirmOrderPage(driver).validateIfSuccessOrder());
 
     }
 }

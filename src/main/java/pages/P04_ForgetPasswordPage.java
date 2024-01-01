@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static pages.PageBase.longWait;
 import static pages.PageBase.shortWait;
 
 public class P04_ForgetPasswordPage{
@@ -53,6 +54,10 @@ public class P04_ForgetPasswordPage{
         return msgDisplayed.equals("Email with instructions has been sent to you.");
     }
 
+    public P04_ForgetPasswordPage waitUntilPageLoad(){
+        longWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.confirmMageOfResetPassword));
+        return this;
+    }
 
 
 

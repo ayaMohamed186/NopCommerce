@@ -11,15 +11,13 @@ import static util.Utility.generateRandomInt;
 public class TC05_SwitchBetweenCurrencies extends TestBase {
     String password = "123456";
     int currencyIndex = generateRandomInt(1);
-    String selectedCurrecny;
-
     @Test(priority = 1, description = " switch between currencies")
-    public void switchBetweenCurrencies() throws InterruptedException {
+    public void switchBetweenCurrencies()  {
         new P01_HomePage(driver).clickLoginBtn();
         new P03_LoginPage(driver).fillEmail(TC01_Registration.tempMail).fillPassword(password).clickLoginButton();
         new P01_HomePage(driver).chooseCurrency(currencyIndex);
-        Thread.sleep(1500);
 
+        new P01_HomePage(driver).waitUntilCurrencyChange();
         // TODO: capture screenshot
         captureScreenshot(driver, "SwitchBetweenCurrency");
 

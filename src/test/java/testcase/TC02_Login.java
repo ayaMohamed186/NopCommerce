@@ -13,15 +13,13 @@ public class TC02_Login extends TestBase {
     String email = "test@test.com";
     String logoutBtnDisplayed;
     String failedMagDisplayed;
-
-
     @Test(priority = 1, description = " Login with register user data ")
-    public void loginWithRegisteredUser_P() throws InterruptedException {
+    public void loginWithRegisteredUser_P() {
         System.out.println("USer email is : " + TC01_Registration.tempMail);
         new P01_HomePage(driver).clickLoginBtn();
         new P03_LoginPage(driver).fillEmail(tempMail).fillPassword(password).clickLoginButton();
-        Thread.sleep(2000);
 
+        new P01_HomePage(driver).waitUntilPageLoad();
         // TODO: capture screenshot
         captureScreenshot(driver, "loginSystem");
 

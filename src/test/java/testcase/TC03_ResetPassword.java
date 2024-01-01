@@ -15,12 +15,12 @@ public class TC03_ResetPassword extends TestBase {
 
     @Test(priority = 1, description = "Reset User Password")
     public void
-    resetPasswordFunction() throws InterruptedException {
+    resetPasswordFunction(){
         new P01_HomePage(driver).clickLoginBtn();
         new P04_ForgetPasswordPage(driver).clickOnforgetPasswordLink().fillMailForForgetPassword(TC01_Registration.tempMail).
                 clickOnRecoverBtn();
-        Thread.sleep(1500);
 
+        new P04_ForgetPasswordPage(driver).waitUntilPageLoad();
         // TODO: capture screenshot
         captureScreenshot(driver, "ResetPassword");
 

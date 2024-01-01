@@ -8,6 +8,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.concurrent.TimeUnit;
+
 import static pages.PageBase.longWait;
 import static pages.PageBase.shortWait;
 import static util.Utility.generateRandomInt;
@@ -23,7 +25,6 @@ public class P06_SubCategoryShoesPage {
     private final By shoesSubCategory = By.xpath("(//a[@href='/shoes'])[1]");
     private final By greyFilterOption = By.id("attribute-option-14");
     private final By randomSubCategory = By.xpath("//div[@class='header-menu']/ul/li[3]/ul/li[" + generateRandomInt(3) + "]");
-
     private final By addToCartBtnForFirstProduct = By.xpath("(//button[@type='button'])[1]");
     private final By addToWishListBtnForThirdProduct = By.xpath("(//button[@type='button'])[9]");
     private final By addToCompareListBtnForSecondProduct = By.xpath("(//button[@type='button'])[5]");

@@ -23,12 +23,13 @@ public class TC01_Registration extends TestBase {
     String unMatchPasswordMsg;
 
     @Test(priority = 1, description = "Register new user with valid data ")
-    public void registerNewUserWithValidData_P() throws InterruptedException { // p refer to positive scenario
+    public void registerNewUserWithValidData_P() {
         System.out.println("User email is : " + tempMail);
         new P01_HomePage(driver).clickRegisterBtn();
         new P02_RegistrationPage(driver).chooseGender().fillFirstName(firstName).fillLastName(lastName).selectDay(day).selectMonth(month).selectYear(year).
                 fillEmailInputField(tempMail).fillPasswordField(password).fillConfirmPassword(confirmPassword).clickRegisterBtn();
-        Thread.sleep(2000);
+
+        new P02_RegistrationPage(driver).waitUntilPageLoad();
 
         // TODO: capture screenshot
         captureScreenshot(driver, "P_registration");

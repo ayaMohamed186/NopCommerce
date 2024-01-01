@@ -15,6 +15,7 @@ public class P03_LoginPage {
     public P03_LoginPage(WebDriver driver) {
         this.driver = driver;
     }
+
     private final By email = By.id("Email");
     private final By password = By.id("Password");
     private final By loginButton = By.xpath("(//button[@type='submit'])[2]");
@@ -41,4 +42,6 @@ public class P03_LoginPage {
         driver.findElement(this.loginButton).click();
         return this;
     }
+
+
 }

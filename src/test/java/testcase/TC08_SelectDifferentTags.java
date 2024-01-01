@@ -9,7 +9,6 @@ import static util.Utility.captureScreenshot;
 
 public class TC08_SelectDifferentTags extends TestBase{
     String password = "123456";
-
     @Test(priority = 1 , description = "Select different tags ")
     public void selectDifferentTags() throws InterruptedException {
         new P01_HomePage(driver).clickLoginBtn();
@@ -19,7 +18,5 @@ public class TC08_SelectDifferentTags extends TestBase{
 
         // TODO: capture screenshot
         captureScreenshot(driver, "selectDiffTags");
-
-
     }
 }
