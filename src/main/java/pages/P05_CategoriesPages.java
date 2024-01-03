@@ -25,6 +25,7 @@ public class P05_CategoriesPages {
         WebElement homePageCategories = driver.findElement(this.homePageCategories);
         Actions hover = new Actions(driver);
         hover.moveToElement(homePageCategories).perform();
+        shortWait(driver).until(ExpectedConditions.visibilityOf(homePageCategories));
         return this;
     }
 }

@@ -16,7 +16,6 @@ public class TC06_SelectRandomCategory extends TestBase{
         new P01_HomePage(driver).clickLoginBtn();
         new P03_LoginPage(driver).fillEmail(TC01_Registration.tempMail).fillPassword(password).clickLoginButton();
         new P05_CategoriesPages(driver).hoverOnRandomCategory();
-        Thread.sleep(1500);
 
         // TODO: capture screenshot
         captureScreenshot(driver, "SelectedRandomCategory");
