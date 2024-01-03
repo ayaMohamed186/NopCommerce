@@ -45,7 +45,7 @@ public class P08_ShoppingCartPage {
 
     public P08_ShoppingCartPage clickOnTermsAndConditionCheckbox(){
         try {
-            shortWait(driver).until(ExpectedConditions.elementToBeClickable(this.termsAndConditionCheckbox));
+            longWait(driver).until(ExpectedConditions.elementToBeClickable(this.termsAndConditionCheckbox));
         } catch (TimeoutException ex) {
             ex.printStackTrace();
             System.out.println("Error happened is " + ex.getMessage());
@@ -65,11 +65,11 @@ public class P08_ShoppingCartPage {
         return this;
     }
     public String productAddedToCart(){
-        shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.productAddedToCart));
+        longWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.productAddedToCart));
         return driver.findElement(this.productAddedToCart).getText();
     }
     public String productDisplayedAtCart(){
-        shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.productDisplayedAtCart));
+        longWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.productDisplayedAtCart));
         return driver.findElement(this.productDisplayedAtCart).getText();
     }
 

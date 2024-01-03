@@ -23,6 +23,5 @@ public class TC05_SwitchBetweenCurrencies extends TestBase {
 
         //Assertion
         Assert.assertTrue(new P01_HomePage(driver).validateIfCurrencyChanged());
-
     }
 }

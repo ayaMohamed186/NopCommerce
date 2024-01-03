@@ -2,6 +2,7 @@ package testcase;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.github.javafaker.Faker;
@@ -10,6 +11,8 @@ import drivers.DriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.annotations.*;
 import pages.P01_HomePage;
 
@@ -86,5 +89,20 @@ public class TestBase {
     @AfterSuite
     public void endSuite() throws Exception {
         MyScreenRecorder.stopRecording();
+        extent.flush();
+    }
+
+    @AfterMethod
+    public void getResult(ITestResult result) {
+        if (result.getStatus() == ITestResult.FAILURE) {
+            test.log(Status.FAIL, result.getName() + " failed with the following error: " + result.getThrowable());
+            Reporter.log("Failed to perform "+result.getName(), 10, true);
+        } else if (result.getStatus() == ITestResult.SUCCESS) {
+            test.log(Status.PASS, result.getName());
+            Reporter.log("Successfully perform "+result.getName(), 10, true);
+        } else {
+            test.log(Status.SKIP, result.getName());
+            Reporter.log("Skip "+result.getName(), 10, true);
+        }
     }
 }

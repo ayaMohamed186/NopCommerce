@@ -28,7 +28,7 @@ public class P01_HomePage {
     private final By msgFailedLogin = By.xpath("//div[@class='message-error validation-summary-errors']");
     private final By productDisplayForSearch = By.xpath("(//a[@href='/apple-macbook-pro-13-inch'])[2]");
     private final By euroSignDisplayed = By.xpath("(//span[@class='price actual-price'])[3]");
-    private final By wishListBtn = By.xpath("//a[@href='/wishlist']");
+    private final By wishListBtn = By.xpath("(//a[@href='/wishlist'])[1]");
     private final By compareListBtn = By.xpath("(//a[@href='/compareproducts'])[1]");
 
     public P01_HomePage clickRegisterBtn() {
@@ -103,14 +103,15 @@ public class P01_HomePage {
         return this;
     }
 
+
+    public P01_HomePage waitUntilCurrencyChange(){
+        //longWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.euroSignDisplayed));
+        longWait(driver).until(ExpectedConditions.textToBePresentInElementLocated(this.euroSignDisplayed, "€210.70"));
+        return this;
+    }
     public boolean validateIfCurrencyChanged() {
         shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.switchCurrencies));
         return driver.findElement(this.euroSignDisplayed).getText().contains("€");
-    }
-
-    public P01_HomePage waitUntilCurrencyChange(){
-        shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.euroSignDisplayed));
-        return this;
     }
 
     public P01_HomePage clickOnWishList() {
@@ -126,7 +127,7 @@ public class P01_HomePage {
 
     public P01_HomePage clickOnComparisonList() {
         try {
-            shortWait(driver).until(ExpectedConditions.elementToBeClickable(this.compareListBtn));
+            longWait(driver).until(ExpectedConditions.elementToBeClickable(this.compareListBtn));
         } catch (TimeoutException ex) {
             ex.printStackTrace();
             System.out.println("Error happened is " + ex.getMessage());
